@@ -1,0 +1,32 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package mynameisstringproject;
+
+/**
+ *
+ * @author RMarks2028
+ */
+public class MyNameIsStringProject {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+  String name = new String("Rowan Marks");
+  System.out.println("My name is " + name);
+  System.out.println("My name length is " + name.length());
+  System.out.println("My name in uppercase is " + "\"" + name.toUpperCase() + "\"");
+  System.out.println("My name in lowercase is " + "\"" + name.toLowerCase() + "\"");
+  System.out.println("The first letter in my name is " + "\"" + name.charAt (0) + "\"");
+  System.out.println("The second letter in my name is " + "\"" + name.charAt(name.length()-1) + "\"");
+  System.out.println("The index of the space between names is " + name.indexOf(" "));
+  
+  
+    
+    
+    
+    
+}}

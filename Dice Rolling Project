@@ -1,0 +1,35 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package randomdicegenerator;
+
+/**
+ *
+ * @author RMarks2028
+ */
+import java.util.Scanner;
+import java.util.Random;
+public class RandomDiceGenerator {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        Random generator = new Random();
+        String input = "";
+        while (!input.equalsIgnoreCase("q")){
+            System.out.println("Press R to roll die or Q to quit: ");
+            input = scan.nextLine();
+            //R will roll die again
+            if (input.equalsIgnoreCase("R")){
+                int die;
+                die = generator.nextInt((6) +1);
+                System.out.println("New dice roll: " + die);
+                
+            }
+    }
+    System.out.println("Program ended");
+    scan.close();
+}}

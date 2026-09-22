@@ -1,0 +1,56 @@
+package randomphonenumbers;
+
+import java.util.Scanner;
+import java.util.Random;
+
+public class RandomPhoneNumbers {
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        Random generator = new Random();
+
+        String input = "";
+//q will end process
+        while (!input.equalsIgnoreCase("q")) {
+
+            System.out.print("Press P to generate a phone number or Q to quit: ");
+            input = scan.nextLine();
+// p will generate new phone number
+            if (input.equalsIgnoreCase("p")) {
+
+                int num1;
+
+                System.out.print("Random phone number: ");
+
+                // First 3 digits cannot exceed 7
+                num1 = generator.nextInt(8);
+                System.out.print(num1);
+                num1 = generator.nextInt(8);
+                System.out.print(num1);
+                num1 = generator.nextInt(8);
+                System.out.print(num1 + "-");
+
+                // Next 3 digits cannot exceed 655
+                num1 = generator.nextInt(7);
+                System.out.print(num1);
+                num1 = generator.nextInt(6);
+                System.out.print(num1);
+                num1 = generator.nextInt(6);
+                System.out.print(num1 + "-");
+
+                // Last 4 digits can be anything
+                num1 = generator.nextInt(10);
+                System.out.print(num1);
+                num1 = generator.nextInt(10);
+                System.out.print(num1);
+                num1 = generator.nextInt(10);
+                System.out.print(num1);
+                num1 = generator.nextInt(10);
+                System.out.println(num1);
+            }
+        }
+
+        System.out.println("Program ended.");
+        scan.close();
+    }
+}

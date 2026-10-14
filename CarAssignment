@@ -1,0 +1,129 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package car;
+
+/**
+ *
+ * @author RMarks2028
+ */
+
+
+class CarInfo {
+    /**1. A class is a blueprint for creating objects. An object is an instance of a class.
+2. Java calls the object's toString() method and prints the returned string.
+* If you do not override toString(), it prints a default representation of the object.
+* 
+3. Scope of a variable:
+In a method: A local variable can only be accessed inside the method or block where it is declared.
+In a class: An instance variable can be accessed by the class's instance methods, subject to access modifiers.
+* A private variable cannot be accessed directly from outside the class.*/
+
+
+    private String carBrand;
+    private int enginePower;
+    private double maxSpeed;
+    private double price;
+
+    // Constructor
+    public CarInfo() {
+        carBrand = "Unknown";
+        enginePower = 0;
+        maxSpeed = 0.0;
+        price = 0.0;
+    }
+
+    // Set and get car brand
+    public void setCarBrand(String carBrand) {
+        this.carBrand = carBrand;
+    }
+
+    public String getCarBrand() {
+        return carBrand;
+    }
+
+    // Set and get engine power
+    public void setEnginePower(int enginePower) {
+        this.enginePower = enginePower;
+    }
+
+    public int getEnginePower() {
+        return enginePower;
+    }
+
+    // Set and get maximum speed
+    public void setMaxSpeed(double maxSpeed) {
+        this.maxSpeed = maxSpeed;
+    }
+
+    public double getMaxSpeed() {
+        return maxSpeed;
+    }
+
+    // Set and get price
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    // toString method
+    @Override
+    public String toString() {
+        return "Car Brand: " + carBrand
+                + "\nEngine Power: " + enginePower + " HP"
+                + "\nMaximum Speed: " + maxSpeed + " MPH"
+                + "\nPrice: $" + String.format("%.2f", price);
+    }
+}
+
+public class Car {
+
+    public static void main(String[] args) {
+
+        // VW Bug
+        CarInfo car1 = new CarInfo();
+        car1.setCarBrand("VW Bug");
+        car1.setEnginePower(60);
+        car1.setMaxSpeed(80.0);
+        car1.setPrice(25000.00);
+
+        // Toyota Prius
+        CarInfo car2 = new CarInfo();
+        car2.setCarBrand("Toyota Prius");
+        car2.setEnginePower(194);
+        car2.setMaxSpeed(112.0);
+        car2.setPrice(28000.00);
+
+        // BMW i8
+        CarInfo car3 = new CarInfo();
+        car3.setCarBrand("BMW i8");
+        car3.setEnginePower(369);
+        car3.setMaxSpeed(155.0);
+        car3.setPrice(147500.00);
+
+        // Tesla Model 3
+        CarInfo car4 = new CarInfo();
+        car4.setCarBrand("Tesla Model 3");
+        car4.setEnginePower(283);
+        car4.setMaxSpeed(125.0);
+        car4.setPrice(42000.00);
+
+        // Print all cars
+        System.out.println(car1);
+        System.out.println();
+
+        System.out.println(car2);
+        System.out.println();
+
+        System.out.println(car3);
+        System.out.println();
+
+        System.out.println(car4);
+    }
+}
+
+

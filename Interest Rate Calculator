@@ -1,0 +1,46 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package interestratecalculator;
+
+/**
+ *
+ * @author RMarks2028
+ */
+import java.util.Scanner;
+import java.text.NumberFormat;
+public class Main {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Scanner Scan = new Scanner(System.in);
+        //Creating scan for user to input
+        InterestRateCalculator calculator = new InterestRateCalculator();
+        //object of the calcultor class
+        System.out.println("Enter ammount borrowed in $: ");
+        double amount = Scan.nextDouble();
+        System.out.println("enter number of months for repayment: ");
+        int months = Scan.nextInt();
+        //interest rate of 3.5% per month
+        double monthlyPayment = calculator.calculateMonthlyPayment(amount, months);
+        System.out.println("----------Loan Repayment Summary----------");
+        System.out.println("Amount borrowed: $" + amount);
+        System.out.println("Interest rate: 3.5%");
+        System.out.println("Monthly Payment: $" + monthlyPayment);
+    }
+    
+}
+//creating separate class which is a Black Box
+class InterestRateCalculator {
+ public static final double RATE = .035;
+ double calculateMonthlyPayment(double amount, int months) {
+     double basePayment = amount / months;
+     double monthlyPayment = basePayment + (basePayment * (1+ RATE));
+     //return the monthly payment
+     return monthlyPayment;
+}}
+
+

@@ -1,0 +1,92 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package coursedetails;
+
+/**
+ *
+ * @author RMarks2028
+ */
+
+
+class Course {
+    private String courseTitle;
+    private String courseCode;
+    private int pointsTotal;
+    private String instructorName;
+
+    public Course(String title, String code, int points, String instructor) {
+        courseTitle = title;
+        courseCode = code;
+        pointsTotal = points;
+        instructorName = instructor;
+    }
+
+    public Course(String title) {
+        courseTitle = title;
+    }
+
+    public String getCourseTitle() {
+        return courseTitle;
+    }
+
+    public String getCourseCode() {
+        return courseCode;
+    }
+
+    public int getPointsTotal() {
+        return pointsTotal;
+    }
+
+    public String getInstructorName() {
+        return instructorName;
+    }
+
+    public void setCourseTitle(String title) {
+        courseTitle = title;
+    }
+
+    public void setCourseCode(String code) {
+        courseCode = code;
+    }
+
+    public void setPointsTotal(int points) {
+        pointsTotal = points;
+    }
+
+    public void setInstructorName(String instructor) {
+        instructorName = instructor;
+    }
+
+    public String toString() {
+        return "Course Title: " + courseTitle
+             + "\nCourse Code: " + courseCode
+             + "\nTotal Points: " + pointsTotal
+             + "\nInstructor: " + instructorName;
+    }
+}
+
+public class CourseDetails {
+    public static void main(String[] args) {
+        Course biology = new Course("AP Computer Science", "Computer lab", 1098, "Mr. Nelson");
+
+        Course history = new Course("Potatio eating 101");
+        history.setCourseCode("Potato 202");
+        history.setPointsTotal(92);
+        history.setInstructorName("Professor Potato head");
+
+        Course art = new Course("Lebron James", "lebron 101", 67, "Bronny Jr.");
+
+        System.out.println(biology);
+        System.out.println();
+
+        System.out.println("Course Title: " + history.getCourseTitle());
+        System.out.println("Course Code: " + history.getCourseCode());
+        System.out.println(history);
+        System.out.println();
+
+        System.out.println(art);
+    }
+}
+

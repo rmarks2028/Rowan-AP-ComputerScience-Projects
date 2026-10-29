@@ -1,0 +1,169 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package mystore;
+
+
+import java.util.Scanner;
+
+public class MyStore {
+
+    public static void main(String[] args) {
+//making max budget 250 dollars
+        final double MAX_BUDGET = 250.00;
+
+        Scanner input = new Scanner(System.in);
+
+        // Creating the store items
+        Item[] items = {
+            new Item("T Shirt", 29.99),
+            new Item("Shoes", 125.99),
+            new Item("Jeans", 60.99),
+            new Item("Jacket", 250.00),
+            new Item("Hat", 25.99),
+            new Item("Shorts", 75.99),
+            new Item("Blouse", 88.99)
+        };
+
+        double totalSpent = 0.00;
+        int count = 0;
+
+        System.out.println("Welcome to MyStore!");
+        System.out.printf("Your budget is $%.2f%n", MAX_BUDGET);
+
+        System.out.println("\nAvailable Items:");
+
+        for (Item item : items) {
+            System.out.println(item);
+        }
+
+        System.out.println("\nEnter the item name to purchase.");
+        System.out.println("Type 'done' to finish shopping.");
+
+        while (true) {
+//prompting shopping
+            System.out.print("\nEnter item name: ");
+            String itemName = input.nextLine().trim();
+
+            // End shopping
+            if (itemName.equalsIgnoreCase("done")) {
+                break;
+            }
+// finding item
+            Item selectedItem = null;
+
+            for (Item item : items) {
+                if (item.getStrName().equalsIgnoreCase(itemName)) {
+                    selectedItem = item;
+                    break;
+                }
+            }
+
+            // Check whether the item exists
+            if (selectedItem == null) {
+                System.out.println(
+                    "Sorry, that item is not available."
+                );
+                continue;
+            }
+
+            double itemPrice = selectedItem.getDblPrice();
+
+            // Check whether the purchase exceeds the budget
+            if (totalSpent + itemPrice > MAX_BUDGET) {
+                System.out.printf(
+                    "Warning! You cannot purchase %s for $%.2f.%n",
+                    selectedItem.getStrName(), itemPrice
+                );
+
+                System.out.printf(
+                    "Your remaining budget is $%.2f.%n",
+                    MAX_BUDGET - totalSpent
+                );
+
+                System.out.println(
+                    "Please choose a less expensive item."
+                );
+
+                continue;
+            }
+
+            // Add the item to the total
+            totalSpent += itemPrice;
+            count++;
+
+            System.out.println("Item added successfully!");
+
+            // Display the item purchased
+            System.out.println(selectedItem);
+
+            // Display current count and total
+            System.out.println("Items purchased: " + count);
+
+            System.out.printf(
+                "Total spent so far: $%.2f%n", totalSpent
+            );
+
+            System.out.printf(
+                "Remaining budget: $%.2f%n",
+                MAX_BUDGET - totalSpent
+            );
+        }
+
+        // Display final results
+        System.out.println("\n--- MyStore Receipt ---");
+        System.out.println("Total items purchased: " + count);
+        System.out.printf("Total spent: $%.2f%n", totalSpent);
+        System.out.printf(
+            "Money remaining: $%.2f%n",
+            MAX_BUDGET - totalSpent
+        );
+
+        System.out.println("Thank you for shopping at MyStore!");
+
+        input.close();
+    }
+}
+
+
+// Item class
+class Item {
+
+    private String strName;
+    private double dblPrice;
+
+    // Constructor
+    public Item(String strName, double dblPrice) {
+        this.strName = strName;
+        this.dblPrice = dblPrice;
+    }
+
+    // Getter for strName
+    public String getStrName() {
+        return strName;
+    }
+
+    // Setter for strName
+    public void setStrName(String strName) {
+        this.strName = strName;
+    }
+
+    // Getter for dblPrice
+    public double getDblPrice() {
+        return dblPrice;
+    }
+
+    // Setter for dblPrice
+    public void setDblPrice(double dblPrice) {
+        this.dblPrice = dblPrice;
+    }
+
+    // toString method
+    @Override
+    public String toString() {
+        return String.format(
+            "Item: %s, Price: %.2f", strName, dblPrice
+        );
+    }
+}
